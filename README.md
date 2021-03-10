@@ -1,2 +1,2 @@
-# machine-learning-a-z-udemy
- Learning Notes for Machine Learning A-Z Course on Udemy
+# School System Management Client
+Frontend Side of School System Management Application, build using Vue.js
