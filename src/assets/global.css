@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+:root {
+  --navbar-height: 3.5rem;
+  --font: "Open Sans", sans-serif;
+  --oxford-blue: rgba(0, 29, 61, 1);
+  --prussian-blue: rgba(0, 53, 102, 1);
+  --mikado-yellow: rgba(255, 195, 0, 1);
+  --gold-web-golden: rgba(255, 214, 10, 1);
+  --rich-black-fogra-29: rgba(0, 8, 20, 1);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.v-application {
+  font-family: var(--font);
+}
