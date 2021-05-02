@@ -2,7 +2,7 @@
   <nav>
     <Container>
       <div class="navbar-content">
-        <router-link to="/">SSMS</router-link>
+        <router-link to="/" class="ssms-logo">SSMS</router-link>
         <div>
           <router-link to="/auth/register">Register</router-link>
           <router-link to="/auth/login">Login</router-link>
@@ -37,16 +37,20 @@ div.navbar-content {
 
 .v-application a {
   color: white;
-  margin: 0 10px;
   transition: 0.2s;
   min-width: 100px;
-  padding: 5px 15px;
+  margin-left: 15px;
   text-align: center;
   border-radius: 10px;
   text-decoration: none;
 }
 
 .v-application a:hover {
-  background: var(--mikado-yellow);
+  color: var(--mikado-yellow);
+}
+
+.ssms-logo {
+  margin-left: 0 !important;
+  text-align: left !important;
 }
 </style>
