@@ -1,14 +1,25 @@
 <template>
   <Layout>
-    Register
+    <div class="form-container">
+      <AuthForm formTitle='Register' />
+    </div>
   </Layout>
 </template>
 
 <script>
 import Layout from '../../components/layout'
+import AuthForm from '../../components/auth-form'
 
 export default {
   name: 'Register',
-  components: { Layout }
+  components: { Layout, AuthForm }
 }
 </script>
+
+<style scoped>
+.form-container {
+  display: flex;
+  padding-top: 100px;
+  justify-content: center;
+}
+</style>

@@ -4,8 +4,8 @@
       <div class="navbar-content">
         <router-link to="/" class="ssms-logo">SSMS</router-link>
         <div>
-          <router-link to="/auth/register">Register</router-link>
           <router-link to="/auth/login">Login</router-link>
+          <router-link to="/auth/register">Register</router-link>
         </div>
       </div>
     </Container>
@@ -37,6 +37,7 @@ div.navbar-content {
 
 .v-application a {
   color: white;
+  font-size: 20px;
   transition: 0.2s;
   min-width: 100px;
   margin-left: 15px;
