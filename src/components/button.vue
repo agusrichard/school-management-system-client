@@ -1,6 +1,8 @@
 <template>
   <v-btn
     :color="color"
+    :type="type"
+    @click="() => $emit('click')"
   >
     {{ title }}
   </v-btn>
@@ -8,7 +10,7 @@
 
 <script>
 export default {
-  props: ['color', 'title']
+  props: ['color', 'title', 'type']
 }
 </script>
 
