@@ -1,11 +1,20 @@
 <template>
-  <form>
-    <h1>{{formTitle}}</h1>
+  <form @submit.prevent="() => formSubmit()">
+    <h1>{{ formTitle }}</h1>
     <div class="textfield-container">
-      <TextField label='Email' placeholder='Your Email' />
-      <TextField label='Password' placeholder='Your Password' />
+      <TextField
+        label="Email"
+        v-model="email"
+        placeholder="Your Email"
+      />
+      <TextField
+        type="password"
+        label="Password"
+        v-model="password"
+        placeholder="Your Password"
+      />
     </div>
-    <Button :title='formTitle' />
+    <Button :title='formTitle' type='submit' />
   </form>
 </template>
 
@@ -14,8 +23,16 @@ import Button from './button'
 import TextField from './textfield'
 
 export default {
+  props: ['formTitle', 'submit'],
   components: { TextField, Button },
-  props: ['formTitle']
+  data: function () {
+    return { email: '', password: '' }
+  },
+  methods: {
+    formSubmit: function () {
+      this.$emit('submit', { email: this.email, password: this.password })
+    }
+  }
 }
 </script>
 
