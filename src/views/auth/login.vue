@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="form-container">
-      <AuthForm formTitle='Login' />
+      <AuthForm formTitle='Login' @submit="submit" :isRegister="false" />
     </div>
   </Layout>
 </template>
@@ -12,7 +12,12 @@ import AuthForm from '../../components/auth-form'
 
 export default {
   name: 'Login',
-  components: { Layout, AuthForm }
+  components: { Layout, AuthForm },
+  methods: {
+    submit: function (data) {
+      console.log('login')
+    }
+  }
 }
 </script>
 
