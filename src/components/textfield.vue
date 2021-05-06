@@ -4,8 +4,8 @@
     :type="type"
     :label="label"
     class="textfield"
-    :placeholder="placeholder"
     @input="change"
+    :placeholder="placeholder"
   ></v-text-field>
 </template>
 
@@ -20,12 +20,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .textfield {
   width: 350px;
 }
 
-div.v-input__slot {
+.v-text-field--outlined > .v-input__control > .v-input__slot {
   background: white !important;
 }
 </style>
