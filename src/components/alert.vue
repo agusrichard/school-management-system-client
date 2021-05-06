@@ -1,9 +1,10 @@
 <template>
   <v-alert
-    type="success"
-    :value="isShow"
-    transition="fade-transition"
+    dismissible
+    :type="type"
     class="alert"
+    @input="change"
+    transition="fade-transition"
   >
     {{ message }}
   </v-alert>
@@ -11,7 +12,12 @@
 
 <script>
 export default {
-  props: ['isShow', 'message']
+  props: ['message', 'type'],
+  methods: {
+    change: function () {
+      this.$emit('close')
+    }
+  }
 }
 </script>
 

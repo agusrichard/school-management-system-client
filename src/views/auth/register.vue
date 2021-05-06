@@ -1,7 +1,10 @@
 <template>
   <Layout>
-    <Alert :isShow="showAlert"
-      message="Success to register your account. Please check your email to validate your account!"
+    <Alert
+      v-if="showAlert"
+      :type="alertType"
+      :message="alertMessage"
+      @close="() => showAlert = false"
     />
     <div class="form-container">
       <AuthForm formTitle='Register' @submit="submit" :isRegister="true" />
@@ -21,14 +24,24 @@ export default {
   components: { Layout, AuthForm, Alert },
   data: function () {
     return {
-      showAlert: false
+      showAlert: false,
+      alertType: 'success',
+      alertMessage: 'Success to register. Please check your email to validate your account!'
     }
   },
   methods: {
-    submit: function (data) {
-      const result = register(data.email, data.password)
-      this.showAlert = !this.showAlert
-      return result
+    submit: async function (data) {
+      try {
+        const result = await register(data.email, data.password)
+        this.showAlert = true
+        return result
+      } catch (error) {
+        console.log('error')
+        this.alertType = 'error'
+        this.alertMessage = 'Email has been registered. Please choose another email to register!'
+        this.showAlert = true
+        return error
+      }
     }
   }
 }
