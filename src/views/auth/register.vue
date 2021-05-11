@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { register } from '../../apis/register'
+import { register } from '../../apis/auth'
 
 import Alert from '../../components/alert'
 import Layout from '../../components/layout'

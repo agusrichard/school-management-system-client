@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { sendEmail } from '../../apis/auth'
+
 import Alert from '../../components/alert'
 import Button from '../../components/button'
 import Layout from '../../components/layout'
@@ -36,6 +38,21 @@ export default {
       showAlert: false,
       alertType: 'success',
       alertMessage: 'Success to register. Please check your email to validate your account!'
+    }
+  },
+  methods: {
+    formSubmit: async function () {
+      try {
+        const result = await sendEmail(this.email)
+        this.showAlert = true
+        return result
+      } catch (error) {
+        console.log('error')
+        this.alertType = 'error'
+        this.alertMessage = 'Email has been registered. Please choose another email to register!'
+        this.showAlert = true
+        return error
+      }
     }
   }
 }
