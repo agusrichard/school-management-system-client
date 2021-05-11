@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/home.vue'
 import Login from '../views/auth/login.vue'
 import Register from '../views/auth/register.vue'
+import SendValidationEmail from '../views/auth/send-validation-email.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/auth/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/auth/send-validation-email',
+    name: 'SendValidationEmail',
+    component: SendValidationEmail
   }
 ]
 

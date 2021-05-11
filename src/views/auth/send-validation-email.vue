@@ -7,32 +7,43 @@
       @close="() => showAlert = false"
     />
     <div class="form-container">
-      <AuthForm formTitle='Register' @submit="submit" :isRegister="true" />
+      <form @submit.prevent="() => formSubmit()">
+        <h1>Send Validation Email</h1>
+        <div class="textfield-container">
+          <TextField
+            label="Email"
+            v-model="email"
+            placeholder="Your Email"
+          />
+        </div>
+        <Button title='Send' type='submit' />
+      </form>
     </div>
   </Layout>
 </template>
 
 <script>
-import { register } from '../../apis/auth'
+import { sendEmail } from '../../apis/auth'
 
 import Alert from '../../components/alert'
+import Button from '../../components/button'
 import Layout from '../../components/layout'
-import AuthForm from '../../components/auth-form'
+import TextField from '../../components/textfield'
 
 export default {
-  name: 'Register',
-  components: { Layout, AuthForm, Alert },
+  components: { Alert, Layout, TextField, Button },
   data: function () {
     return {
+      email: '',
       showAlert: false,
       alertType: 'success',
       alertMessage: 'Success to register. Please check your email to validate your account!'
     }
   },
   methods: {
-    submit: async function (data) {
+    formSubmit: async function () {
       try {
-        const result = await register(data.email, data.password)
+        const result = await sendEmail(this.email)
         this.showAlert = true
         return result
       } catch (error) {
@@ -52,5 +63,25 @@ export default {
   display: flex;
   padding-top: 150px;
   justify-content: center;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  padding-top: 50px;
+  align-items: center;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  background: #efefef;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+.textfield-container {
+  margin-top: 50px;
+  margin-bottom: 25px;
 }
 </style>
