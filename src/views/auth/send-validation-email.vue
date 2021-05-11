@@ -32,6 +32,7 @@ export default {
   components: { Alert, Layout, TextField, Button },
   data: function () {
     return {
+      email: '',
       showAlert: false,
       alertType: 'success',
       alertMessage: 'Success to register. Please check your email to validate your account!'
