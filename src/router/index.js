@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/home.vue'
 import Login from '../views/auth/login.vue'
 import Register from '../views/auth/register.vue'
+import ForgetPassword from '../views/auth/forget-password.vue'
+import ChangePassword from '../views/auth/change-password.vue'
 import SendValidationEmail from '../views/auth/send-validation-email.vue'
 
 Vue.use(VueRouter)
@@ -27,6 +29,16 @@ const routes = [
     path: '/auth/send-validation-email',
     name: 'SendValidationEmail',
     component: SendValidationEmail
+  },
+  {
+    path: '/auth/forget-password',
+    name: 'ForgetPassword',
+    component: ForgetPassword
+  },
+  {
+    path: '/auth/change-password',
+    name: 'ChangePassword',
+    component: ChangePassword
   }
 ]
 

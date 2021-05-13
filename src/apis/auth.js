@@ -12,3 +12,15 @@ export const sendEmail = async function (email) {
   const response = await axios.post(`${config.backendServiceURI}/accounts/resend-email`, data)
   return response.data
 }
+
+export const forgotPassword = async function (email) {
+  const data = { email }
+  const response = await axios.post(`${config.backendServiceURI}/accounts/forgot-password`, data)
+  return response.data
+}
+
+export const changePassword = async function (email, verificationCode, password) {
+  const data = { password }
+  const response = await axios.post(`${config.backendServiceURI}/accounts/change-password?email=${email}&verification_code=${verificationCode}`, data)
+  return response.data
+}
