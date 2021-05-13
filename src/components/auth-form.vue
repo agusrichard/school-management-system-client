@@ -19,6 +19,7 @@
       <p v-if="isRegister">Already have an account and have validated your account: <router-link to="/auth/login">login</router-link></p>
       <p v-else>Have no account yet: <router-link to="/auth/register">register</router-link></p>
       <p>Have not received your confirmation email: <router-link to="/auth/send-validation-email">send validation email</router-link></p>
+      <p v-if="isRegister">Forget password: <router-link to="/auth/forget-password">Ask to change password</router-link></p>
     </div>
   </form>
 </template>
