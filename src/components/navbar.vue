@@ -3,9 +3,12 @@
     <Container>
       <div class="navbar-content">
         <router-link to="/" class="ssms-logo">SSMS</router-link>
-        <div>
+        <div v-if="!isLoggedIn">
           <router-link to="/auth/login">Login</router-link>
           <router-link to="/auth/register">Register</router-link>
+        </div>
+        <div v-else>
+          <button @click="logout">Logout</button>
         </div>
       </div>
     </Container>
@@ -15,7 +18,18 @@
 <script>
 import Container from './container'
 export default {
-  components: { Container }
+  components: { Container },
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.state.auth.isLoggedIn
+    }
+  },
+  methods: {
+    logout: function () {
+      this.$store.dispatch('auth/setLogin', { status: false })
+      this.$router.push({ name: 'Login' })
+    }
+  }
 }
 </script>
 
@@ -47,6 +61,21 @@ div.navbar-content {
 }
 
 .v-application a:hover {
+  color: var(--mikado-yellow);
+}
+
+button {
+  color: white;
+  font-size: 20px;
+  transition: 0.2s;
+  min-width: 100px;
+  margin-left: 15px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+button:hover {
   color: var(--mikado-yellow);
 }
 

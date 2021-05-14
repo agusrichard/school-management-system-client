@@ -47,7 +47,6 @@ export default {
         this.showAlert = true
         return result
       } catch (error) {
-        console.log('error')
         this.alertType = 'error'
         this.alertMessage = 'Failed to ask to change password'
         this.showAlert = true

@@ -32,15 +32,13 @@ export default {
   methods: {
     submit: async function (data) {
       try {
-        const result = await register(data.email, data.password)
+        await register(data.email, data.password)
+        this.alertType = 'success'
         this.showAlert = true
-        return result
       } catch (error) {
-        console.log('error')
         this.alertType = 'error'
         this.alertMessage = 'Email has been registered. Please choose another email to register!'
         this.showAlert = true
-        return error
       }
     }
   }

@@ -43,15 +43,12 @@ export default {
   methods: {
     formSubmit: async function () {
       try {
-        const result = await sendEmail(this.email)
+        await sendEmail(this.email)
         this.showAlert = true
-        return result
       } catch (error) {
-        console.log('error')
         this.alertType = 'error'
         this.alertMessage = 'Email has been registered. Please choose another email to register!'
         this.showAlert = true
-        return error
       }
     }
   }
