@@ -6,6 +6,7 @@
         <div>
           <router-link to="/auth/login">Login</router-link>
           <router-link to="/auth/register">Register</router-link>
+          <!-- <button>Logout</button> -->
         </div>
       </div>
     </Container>

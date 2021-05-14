@@ -24,3 +24,18 @@ export const changePassword = async function (email, verificationCode, password)
   const response = await axios.post(`${config.backendServiceURI}/accounts/change-password?email=${email}&verification_code=${verificationCode}`, data)
   return response.data
 }
+
+export const login = async function (email, password) {
+  const data = { email, password }
+  const response = await axios.post(`${config.backendServiceURI}/accounts/login`, data)
+  return response.data
+}
+
+export const checkAuthentication = async function (token) {
+  const requestConfig = {
+    headers: { token }
+  }
+
+  const response = await axios.get(`${config.backendServiceURI}/accounts`, requestConfig)
+  return response.data
+}

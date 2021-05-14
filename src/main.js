@@ -6,6 +6,8 @@ import vuetify from './plugins/vuetify'
 
 import './assets/global.css'
 
+Vue.use(require('vue-cookies'))
+
 Vue.config.productionTip = false
 
 new Vue({

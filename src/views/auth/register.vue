@@ -33,6 +33,7 @@ export default {
     submit: async function (data) {
       try {
         const result = await register(data.email, data.password)
+        this.alertType = 'success'
         this.showAlert = true
         return result
       } catch (error) {
