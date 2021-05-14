@@ -1,10 +1,14 @@
 <template>
-  <div>User's Profile</div>
+  <Layout>
+    <div>User's Profile</div>
+  </Layout>
 </template>
 
 <script>
-export default {
+import Layout from '../../components/layout'
 
+export default {
+  components: { Layout }
 }
 </script>
 

@@ -59,7 +59,6 @@ export default {
         await changePassword(query.email, query.verification_code, this.password)
         this.$router.push({ name: 'Login' })
       } catch (error) {
-        console.log('error')
         this.showAlert = true
         return error
       }

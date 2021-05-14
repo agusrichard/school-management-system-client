@@ -33,16 +33,12 @@ export default {
     submit: async function (data) {
       try {
         const result = await login(data.email, data.password)
-        this.$cookies.set('access-token', result.access_token)
-        this.$store.dispatch('auth/setLogin', { status: true })
+        this.$store.dispatch('auth/setLogin', { status: true, accessToken: result.access_token })
         this.$router.push({ name: 'UserProfile' })
-        return result
       } catch (error) {
-        console.log('error')
         this.alertType = 'error'
         this.alertMessage = 'Email has been registered. Please choose another email to register!'
         this.showAlert = true
-        return error
       }
     }
   }
