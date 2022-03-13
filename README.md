@@ -1,4 +1,4 @@
-# school-system-management-client
+# school-management-system-client
 
 ## Project setup
 ```
